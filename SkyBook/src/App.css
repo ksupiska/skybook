@@ -31,13 +31,13 @@
 
 .title {
   color: white;
-  padding: 10vw;
+  padding: 5rem 2rem;
   opacity: 0;
   animation: fadeIn 1s ease-in forwards;
 }
 
 .hello {
-  padding: 2vw;
+  padding: 5rem 2rem;
   color: white;
   opacity: 0;
   animation: fadeIn 1s ease-in forwards;
@@ -82,7 +82,7 @@
 }
 
 .option {
-  color: #C0CBF0;
+  color: #c0cbf0;
   font-size: 4rem;
   line-height: 1.8;
   align-items: flex-start;
@@ -94,13 +94,13 @@
   margin: 0.2rem 0;
 }
 
-.entries h2{
+.entries h2 {
   color: #7e93e0;
   font-size: 4rem;
 }
 
-.entries p{
-  color: #C0CBF0 !important;
+.entries p {
+  color: #c0cbf0 !important;
   font-size: 2rem;
 }
 @keyframes fadeIn {

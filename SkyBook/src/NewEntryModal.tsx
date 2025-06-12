@@ -1,62 +1,74 @@
-import { useState } from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
 
-import './App.css';
-
+import './modal.css'
 type Props = {
-  onClose: () => void;
-  onSave: (entry: { text: string; mood: string; date: string }) => void;
+    onClose: () => void;
+    onSave: (entry: { text: string; mood: string; date: string }) => void;
 };
 
-function NewEntryModal({ onClose, onSave }: Props) {
-  const [text, setText] = useState('');
-  const [mood, setMood] = useState('');
+const moodOptions = [
+    { label: 'Happy', value: 'happy' },
+    { label: 'Sad', value: 'sad' },
+    { label: 'Angry', value: 'angry' },
+    { label: 'Calm', value: 'calm' },
+    { label: 'Tired', value: 'tired' },
+];
 
-  const handleSave = () => {
-    const date = new Date().toISOString();
-    onSave({ text, mood, date });
-    onClose();
-  };
+export default function NewEntryModal({ onClose, onSave }: Props) {
+    const [text, setText] = useState('');
+    const [mood, setMood] = useState('');
+    const [closing, setClosing] = useState(false);
 
-  return (
-    <Modal show onHide={onClose} centered>
-      <Modal.Header className='modal-header' closeButton>
-        <Modal.Title>SkyBook</Modal.Title>
-        <Modal.Title>Write new entry</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          <Form.Group controlId="formMood">
-            <Form.Label>Mood</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="How do you feel?"
-              value={mood}
-              onChange={(e) => setMood(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group controlId="formText">
-            <Form.Label>Thoughts</Form.Label>
-            <Form.Control
-              as="textarea"
-              rows={4}
-              placeholder="Write here..."
-              value={text}
-              onChange={(e) => setText(e.target.value)}
-            />
-          </Form.Group>
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
-          Cancel
-        </Button>
-        <Button variant="primary" onClick={handleSave}>
-          Save Entry
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
+    const handleSave = () => {
+        const date = new Date().toISOString();
+        onSave({ text, mood, date });
+        startClose();
+    };
+
+    const startClose = () => {
+        setClosing(true);
+    };
+
+    useEffect(() => {
+        if (closing) {
+            const timeout = setTimeout(() => {
+                onClose();
+            }, 300);
+            return () => clearTimeout(timeout);
+        }
+    }, [closing, onClose]);
+
+    const moodClass = mood ? `modal-${mood}` : '';
+
+    return (
+        <div className={`modal-backdrop ${closing ? 'fade-out' : 'fade-in'}`}>
+            <div className={`modal-content ${closing ? 'slide-out' : 'slide-in'} ${moodClass}`}>
+                <h2>Write new entry</h2>
+                <div className="mood-buttons">
+                    {moodOptions.map((option) => (
+                        <button
+                            key={option.value}
+                            className={mood === option.value ? 'active' : ''}
+                            onClick={() => setMood(option.value)}
+                        >
+                            {option.label}
+                        </button>
+                    ))}
+                </div>
+                <label>
+                    Thoughts:
+                    <textarea
+                        rows={4}
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                        placeholder="Write here..."
+                    />
+                </label>
+                <div className="modal-buttons">
+                    <button onClick={startClose}>Cancel</button>
+                    <button className='save-btn' onClick={handleSave}>Save Entry</button>
+                </div>
+            </div>
+        </div>
+    );
 }
-
-export default NewEntryModal;

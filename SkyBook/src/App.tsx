@@ -24,12 +24,6 @@ function App() {
   };
   return (
     <>
-      {isModalOpen && (
-        <NewEntryModal
-          onClose={() => setIsModalOpen(false)}
-          onSave={handleSaveEntry}
-        />
-      )}
       <div className='gradient'>
         {/* <div className="skeleton"></div> */}
 
@@ -73,7 +67,12 @@ function App() {
           ))
         )}
       </Container>
-
+      {isModalOpen && (
+        <NewEntryModal
+          onClose={() => setIsModalOpen(false)}
+          onSave={handleSaveEntry}
+        />
+      )}
     </>
   )
 }

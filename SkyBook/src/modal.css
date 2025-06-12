@@ -1,0 +1,286 @@
+.modal-backdrop.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+.modal-backdrop.fade-out {
+  animation: fadeOut 0.3s ease-in forwards;
+}
+
+.modal-content.slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+.modal-content.slide-out {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(203, 203, 203, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.5s ease;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #7e93e0;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 1rem;
+  color: #c0cbf0;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.modal-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #7e93e0;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.modal-buttons button:hover {
+  transition: all 0.5s ease;
+  background: #6b7dbe;
+  transform: scale(1.05);
+}
+
+.modal-buttons button:first-child {
+  background: #aaa;
+  transition: all 0.5s ease;
+}
+
+.modal-buttons button:first-child:hover {
+  background: #6b7dbe;
+  transform: scale(1.05);
+}
+
+/* Кнопки выбора настроения */
+.mood-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.mood-buttons button {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  font-size: 1rem;
+}
+
+/* Цвета модалки по настроению */
+.modal-happy {
+  background: linear-gradient(to bottom right, #ffee9b, white);
+}
+.modal-happy h2 {
+  color: #d2c47d;
+  transition: all 0.5s ease;
+}
+.modal-happy button {
+  background-color: #d2c47d;
+  border: #d4be51;
+  transition: all 0.2s ease;
+  color: white;
+}
+.modal-happy button:hover {
+  background-color: #d6bc3b;
+  color: white;
+}
+.modal-happy button:active {
+  background-color: #d4be51;
+}
+.modal-happy label {
+  color: #d2c47d;
+}
+.modal-happy .modal-buttons button:first-child:hover {
+  background-color: #d6bc3b;
+}
+
+.modal-sad {
+  background: linear-gradient(
+    to bottom right,
+    #b3adff,
+    white
+  ); /* нежный синий */
+}
+.modal-sad h2 {
+  color: #7167ff;
+  transition: all 0.5s ease;
+}
+.modal-sad button {
+  background-color: #7167ff;
+  border: #9e97ff;
+  transition: all 0.2s ease;
+  color: white;
+}
+.modal-sad button:hover {
+  background-color: #594dff;
+  color: white;
+}
+.modal-sad button:active {
+  background-color: #9e97ff;
+}
+.modal-sad label {
+  color: #7167ff;
+}
+.modal-sad .modal-buttons button:first-child:hover {
+  background-color: #594dff;
+}
+
+.modal-angry {
+  background: linear-gradient(to bottom right, #ff9797, white) ; /* мягкий красный */
+}
+.modal-angry h2 {
+  color: #ff7979;
+  transition: all 0.5s ease;
+}
+.modal-angry button {
+  background-color: #fea2a2;
+  border: #ff7979;
+  transition: all 0.2s ease;
+  color: white;
+}
+.modal-angry button:hover {
+  background-color: #ff5f5f;
+  color: white;
+}
+.modal-angry button:active {
+  background-color: #ff7979;
+}
+.modal-angry label {
+  color: #fea2a2;
+}
+.modal-angry .modal-buttons button:first-child:hover {
+  background-color: #ff5f5f;
+}
+
+.modal-calm {
+  background: linear-gradient(to bottom right, #9affd7, white); /* зелёный/бирюзовый */
+}
+.modal-calm h2 {
+  color: #65c29d;
+  transition: all 0.5s ease;
+}
+.modal-calm button {
+  background-color: #90bdab;
+  border: #65c29d;
+  transition: all 0.2s ease;
+  color: white;
+}
+.modal-calm button:hover {
+  background-color: #70d7ae;
+  color: white;
+}
+.modal-calm button:active {
+  background-color: #65c29d;
+}
+.modal-calm label {
+  color: #c1ffe6;
+}
+.modal-calm .modal-buttons button:first-child:hover {
+  background-color: #90bdab;
+}
+
+.modal-tired {
+  background: linear-gradient(to bottom right, #afafaf, white); /* серый */
+}
+.modal-tired h2 {
+  color: #868686;
+  transition: all 0.5s ease;
+}
+.modal-tired button {
+  background-color: #7c7c7c;
+  border: #868686;
+  transition: all 0.2s ease;
+  color: white;
+}
+.modal-tired button:hover {
+  background-color: #a9a9a9;
+  color: white;
+}
+.modal-tired button:active {
+  background-color: #868686;
+}
+.modal-tired label {
+  color: #aaaaaa;
+}
+.modal-tired .modal-buttons button:first-child:hover {
+  background-color: #7c7c7c;
+}
+/* Остальные стили из предыдущего ответа можно оставить без изменений */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
