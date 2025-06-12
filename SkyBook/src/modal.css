@@ -247,7 +247,47 @@
 .modal-tired .modal-buttons button:first-child:hover {
   background-color: #7c7c7c;
 }
-/* Остальные стили из предыдущего ответа можно оставить без изменений */
+
+.custom-textarea {
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.custom-textarea:focus {
+  outline: none;
+}
+.taxtarea-happy {
+  border-color: #d2c47d;
+  background-color: #fffbe6;
+  color: #8f7f2e;
+}
+
+.taxtarea-sad {
+  border-color: #4b70a5;
+  background-color: #eef3fa;
+  color: #305080;
+}
+
+.taxtarea-angry {
+  border-color: #cb5151;
+  background-color: #fff0f0;
+  color: #802020;
+}
+
+.taxtarea-calm {
+  border-color: #2dac75;
+  background-color: #fff0f0;
+  color: #208056;
+}
+
+.taxtarea-tired {
+  border-color: #7d7d7d;
+  background-color: #fff0f0;
+  color: #494949;
+}
 
 @keyframes fadeIn {
   from {

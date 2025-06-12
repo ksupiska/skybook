@@ -58,6 +58,7 @@ export default function NewEntryModal({ onClose, onSave }: Props) {
                 <label>
                     Thoughts:
                     <textarea
+                        className={`custom-textarea taxtarea-${mood.toLowerCase()}`}
                         rows={4}
                         value={text}
                         onChange={(e) => setText(e.target.value)}
