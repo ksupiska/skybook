@@ -104,6 +104,125 @@
   color: #c0cbf0 !important;
   font-size: 2rem;
 }
+
+.entry-happy {
+  background: linear-gradient(to bottom right, #ffee9b, white);
+  border-left: 6px solid #d2c47d;
+}
+.entry-happy h5 {
+  color: #b49e3c !important;
+}
+.entry-happy p {
+  color: #d5bb48 !important;
+}
+
+.entry-sad {
+  background: linear-gradient(to bottom right, #cce0f5, white);
+  border-left: 6px solid #6c91c2;
+}
+.entry-sad h5 {
+  color: #7e9fc6 !important;
+}
+.entry-sad p {
+  color: #8cafdb !important;
+}
+
+.entry-angry {
+  background: linear-gradient(to bottom right, #f8b3b3, white);
+  border-left: 6px solid #c95d5d;
+}
+.entry-angry h5 {
+  color: #cb5151 !important;
+}
+.entry-angry p {
+  color: #d17777 !important;
+}
+
+.entry-calm {
+  background: linear-gradient(to bottom right, #d1f5d3, white);
+  border-left: 6px solid #6cc278;
+}
+.entry-calm h5 {
+  color: #89d28d !important;
+}
+.entry-calm p {
+  color: #98e99c !important;
+}
+
+.entry-tired {
+  background: linear-gradient(to bottom right, #cbcbcb, white);
+  border-left: 6px solid #6e6e6e;
+}
+.entry-tired h5 {
+  color: #939393 !important;
+}
+.entry-tired p {
+  color: #a6a2a2 !important;
+}
+
+.entry-box {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background 0.4s ease, border 0.4s ease;
+}
+
+.delete-btn-happy{
+  background: #b49e3c;
+  transition: all 0.5s ease;
+  border: none;
+  border-radius: 20px;
+}
+.delete-btn-happy:hover{
+  background: #d5bb48;
+  transform: scale(1.05);
+}
+
+.delete-btn-sad{
+  background: #7e9fc6;
+  transition: all 0.5s ease;
+  border: none;
+  border-radius: 20px;
+}
+.delete-btn-sad:hover{
+  background: #8cafdb;
+  transform: scale(1.05);
+}
+
+.delete-btn-angry{
+  background: #cb5151;
+  transition: all 0.5s ease;
+  border: none;
+  border-radius: 20px;
+}
+.delete-btn-angry:hover{
+  background: #d17777;
+  transform: scale(1.05);
+}
+
+.delete-btn-calm{
+  background: #89d28d;
+  transition: all 0.5s ease;
+  border: none;
+  border-radius: 20px;
+}
+.delete-btn-calm:hover{
+  background: #98e99c;
+  transform: scale(1.05);
+}
+
+.delete-btn-tired{
+  background: #939393;
+  transition: all 0.5s ease;
+  border: none;
+  border-radius: 20px;
+}
+.delete-btn-tired:hover{
+  background: #a6a2a2;
+  transform: scale(1.05);
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;

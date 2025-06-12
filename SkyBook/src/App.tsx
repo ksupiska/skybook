@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Container, Row, Col, Button } from 'react-bootstrap'
 import { BiSolidPencil } from "react-icons/bi";
@@ -19,9 +19,25 @@ function App() {
     date: string;
   };
 
+  useEffect(() => {
+    const savedEntries = localStorage.getItem('entries');
+    if (savedEntries) {
+      setEntries(JSON.parse(savedEntries));
+    }
+  }, []);
+
   const handleSaveEntry = (entry: Entry) => {
-    setEntries((prev) => [...prev, entry]);
+    const updatedEntries = [...entries, entry];
+    setEntries(updatedEntries);
+    localStorage.setItem('entries', JSON.stringify(updatedEntries));
   };
+  const handleDeleteEntry = (indexToDelete: number) => {
+    const updatedEntries = entries.filter((_, index) => index !== indexToDelete);
+    setEntries(updatedEntries);
+    localStorage.setItem('entries', JSON.stringify(updatedEntries)); // если используешь localStorage
+  };
+
+
   return (
     <>
       <div className='gradient'>
@@ -58,15 +74,29 @@ function App() {
         {entries.length === 0 ? (
           <p className="text-center text-muted">No entries yet. Add one above!</p>
         ) : (
-          entries.map((entry, index) => (
-            <div key={index} className="p-3 mb-3 rounded border shadow-sm bg-light">
-              <h5 className="text-primary">Mood: {entry.mood}</h5>
-              <p>{entry.text}</p>
-              <small className="text-muted">{new Date(entry.date).toLocaleString()}</small>
-            </div>
-          ))
+          entries.map((entry, index) => {
+            const moodClass = `entry-${entry.mood.toLowerCase()}`;
+            return (
+              <div
+                key={index}
+                className={`entry-box ${moodClass}`}
+              >
+                <h5 className="text-primary">Mood: {entry.mood}</h5>
+                <p>{entry.text}</p>
+                <small className="text-muted">
+                  {new Date(entry.date).toLocaleString()}
+                </small>
+                <div className="mt-2 text-end">
+                  <Button className={`delete-btn-${entry.mood.toLowerCase()}`} type='button' onClick={() => handleDeleteEntry(index)}>
+                    Delete
+                  </Button>
+                </div>
+              </div>
+            );
+          })
         )}
       </Container>
+
       {isModalOpen && (
         <NewEntryModal
           onClose={() => setIsModalOpen(false)}
