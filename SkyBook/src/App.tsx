@@ -39,12 +39,12 @@ function App() {
 
       </div>
 
-      <Container className='list d-flex  align-items-center justify-content-center'>
-        <Row className='w-100'>
-          <Col xs={4} className='option-title'>
+      <Container className='list d-flex align-items-center justify-content-center py-4'>
+        <Row className='w-100 align-items-center text-center text-md-start'>
+          <Col xs={12} md={4} className='option-title'>
             <h1>YOUR</h1>
           </Col>
-          <Col xs={6} className='option'>
+          <Col xs={12} md={6} className='option'>
             <p>mood</p>
             <p>thoughts</p>
             <p>feelings</p>

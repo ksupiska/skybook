@@ -77,21 +77,22 @@
 
 .option-title h1 {
   color: #7e93e0;
-  font-size: 8rem;
+  font-size: 6rem;
   margin: 0;
+  transition: font-size 0.3s ease;
 }
 
 .option {
   color: #c0cbf0;
-  font-size: 4rem;
-  line-height: 1.8;
-  align-items: flex-start;
-  padding-left: 10rem;
+  font-size: 2.5rem;
+  line-height: 1.6;
+  padding-left: 0;
   justify-content: center;
+  text-align: center;
 }
 
 .option p {
-  margin: 0.2rem 0;
+  margin: 0.5rem 0;
 }
 
 .entries h2 {
@@ -106,5 +107,17 @@
 @keyframes fadeIn {
   to {
     opacity: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .option-title h1 {
+    font-size: 8rem;
+  }
+
+  .option {
+    font-size: 4rem;
+    text-align: left;
+    padding-left: 10rem;
   }
 }
